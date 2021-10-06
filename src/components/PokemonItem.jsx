@@ -2,8 +2,8 @@ import React from "react";
 
 function PokemonItem({ item, selectPoke }) {
   return (
-    <li className="mr-4">
-      <div className="max-w-md py-4 px-8 bg-white shadow-lg rounded-lg my-20">
+    <li>
+      <div className="max-w-xxl py-4 px-8 bg-white shadow-lg rounded-lg my-20">
         <div>
           <h2 className="text-gray-800 text-3xl font-semibold">
             {item.name.charAt(0).toUpperCase() + item.name.slice(1)}
