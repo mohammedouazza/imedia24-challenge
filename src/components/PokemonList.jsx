@@ -52,7 +52,10 @@ function PokemonList() {
 
   return (
     <>
-      <ul className="flex flex-col text-center" data-testid="list-items">
+      <ul
+        className="flex flex-col text-center pokemon-list"
+        data-testid="list-items"
+      >
         {pokemons.slice(0, scrollNumber).map((pokemon, idx) => (
           <PokemonItem key={idx} item={pokemon} selectPoke={selectPoke} />
         ))}
