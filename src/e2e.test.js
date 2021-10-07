@@ -95,15 +95,20 @@ describe("App.js", () => {
     await page.waitForSelector(".pokemon-list");
     await page.waitForSelector(".pokemon-show");
 
+    const listElementChildrenBefore = await page.$eval(
+      ".pokemon-list",
+      (e) => e.children.length
+    );
+
     await page.evaluate(() => {
       window.scrollBy(0, window.innerHeight);
     });
     await page.waitForTimeout(1000); // one second to load the next 5 items
-    const listElementChildren = await page.$eval(
+    const listElementChildrenAfter = await page.$eval(
       ".pokemon-list",
       (e) => e.children.length
     );
-    expect(listElementChildren).toEqual(10);
+    expect(listElementChildrenBefore < listElementChildrenAfter).toBe(true);
   });
 
   afterAll(() => browser.close());
